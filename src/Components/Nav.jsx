@@ -7,7 +7,8 @@ const Nav = ({ filterAndFind }) => {
     const { name, value } = event.target;
     setData({ ...data, [name]: value });
     if (name === "search") {
-      filterAndFind(value, data.filter);
+      const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
+      filterAndFind(capitalizedValue, data.filter);
     }
     if (name === "filter") {
       filterAndFind(data.search, value);
