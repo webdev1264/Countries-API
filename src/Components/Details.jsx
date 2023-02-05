@@ -3,15 +3,20 @@ const Details = (props) => {
   const { region, subregion, population } = countryDetails;
   const commonName = countryDetails.name.common;
   const nativeName = countryDetails.name.official;
-  const capital = countryDetails.capital[0];
+  const capital = countryDetails.capital ? countryDetails.capital[0] : [];
   const tld = countryDetails.tld[0];
-  const currencies = Object.values(countryDetails.currencies);
-  const languages = Object.values(countryDetails.languages);
+  const currencies = countryDetails.currencies
+    ? Object.values(countryDetails.currencies)
+    : [];
+  const languages = countryDetails.languages
+    ? Object.values(countryDetails.languages)
+    : [];
   const { svg, alt } = countryDetails.flags;
   const borders = countryDetails.borders ? countryDetails.borders : [];
 
   return (
-    <div className="text-left mx-auto max-w-lg">
+    <div className="p-7">
+          <div className="text-left mx-auto max-w-lg">
       <button
         className="btn flex items-center border-solid bg-white shadow-lg border-black ml-10 mt-16 w-32 h-10"
         onClick={toMainPage}
@@ -97,6 +102,7 @@ const Details = (props) => {
           );
         })}
       </div>
+    </div>
     </div>
   );
 };

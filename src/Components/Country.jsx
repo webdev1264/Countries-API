@@ -4,7 +4,7 @@ const Country = (props) => {
   const capital = props.capital ? props.capital[0] : "N/A";
   const flag = props.flags.svg;
   return (
-    <div>
+    <div className="p-7">
       <div
         className="country-wrapper mx-auto my-5 max-w-lg rounded-lg overflow-hidden shadow-lg cursor-pointer"
         onClick={() => details(name)}

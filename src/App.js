@@ -6,11 +6,14 @@ import Details from "./Components/Details";
 import "./App.css";
 
 let fullCountryList;
+const currentTheme = localStorage.getItem("theme")
+  ? localStorage.getItem("theme")
+  : "light";
 
 function App() {
   const [showDetails, setShowDetails] = useState(null);
   const [countryList, setCountryList] = useState([]);
-  const [colorTheme, setColorTheme] = useState("dark");
+  const [colorTheme, setColorTheme] = useState(currentTheme);
 
   useEffect(() => {
     try {
@@ -48,11 +51,9 @@ function App() {
   };
 
   const changeThemeHandler = () => {
-    if (colorTheme === "dark") {
-      setColorTheme("light");
-      return;
-    }
-    setColorTheme("dark");
+    const theme = colorTheme === "dark" ? "light" : "dark";
+    setColorTheme(theme);
+    localStorage.setItem("theme", theme);
   };
 
   return (
