@@ -1,0 +1,58 @@
+.App {
+  text-align: center;
+}
+
+.App {
+  --text-color: hsl(200, 15%, 8%);
+  --bg-color: hsl(0, 0%, 98%);
+  --elements: hsl(0, 0%, 100%);
+}
+
+.App.dark-theme {
+  --text-color: hsl(0, 0%, 100%);
+  --bg-color: hsl(207, 26%, 17%);
+  --elements: hsl(209, 23%, 22%);
+}
+
+/* @media (prefers-color-scheme: dark) {
+  .App {
+    --text-color: hsl(0, 0%, 100%);
+    --bg-color: hsl(207, 26%, 17%);
+    --elements: hsl(209, 23%, 22%);
+  }
+  .App.light-theme {
+    --text-color: hsl(200, 15%, 8%);
+    --bg-color: hsl(0, 0%, 98%);
+    --elements: hsl(0, 0%, 100%);
+  }
+} */
+
+.App {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.header-container {
+  background-color: var(--elements);
+}
+
+.moon {
+  color: var(--text-color);
+}
+
+.search {
+  background-color: var(--elements);
+}
+
+.filter {
+  background-color: var(--elements);
+}
+
+.country-wrapper {
+  background-color: var(--elements);
+}
+
+.btn {
+  color: var(--text-color);
+  background-color: var(--elements);
+}
