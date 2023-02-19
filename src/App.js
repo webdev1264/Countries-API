@@ -3,9 +3,11 @@ import Header from "./Components/Header";
 import Nav from "./Components/Nav";
 import Country from "./Components/Country";
 import Details from "./Components/Details";
+import Loader from "./Components/Loader";
+import Error from "./Components/Error";
 import "./App.css";
 
-let fullCountryList;
+let fullCountryList = [];
 const currentTheme = localStorage.getItem("theme")
   ? localStorage.getItem("theme")
   : "light";
@@ -14,18 +16,26 @@ function App() {
   const [showDetails, setShowDetails] = useState(null);
   const [countryList, setCountryList] = useState([]);
   const [colorTheme, setColorTheme] = useState(currentTheme);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [error, setError] = useState();
 
   useEffect(() => {
-    try {
-      fetch("https://restcountries.com/v3.1/all").then((response) =>
-        response.json().then((data) => {
-          setCountryList(data);
-          fullCountryList = data;
-        })
-      );
-    } catch (e) {
-      console.error(e);
-    }
+    fetch("https://restcountries.com/v3.1/all")
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.message) {
+          setError(data);
+          return;
+        }
+        setCountryList(data);
+        fullCountryList = data;
+        setIsLoaded(true);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        setError(error);
+        setIsLoaded(true);
+      });
   }, []);
 
   const detailsHandler = (name) => {
@@ -66,12 +76,18 @@ function App() {
           fullCountryList={fullCountryList}
           details={detailsHandler}
         />
+      ) : error ? (
+        <Error error={error} />
+      ) : !isLoaded ? (
+        <Loader />
       ) : (
         <>
           <Nav filterAndFind={filterAndFindHandler} />
-          {countryList.map((country, id) => (
-            <Country key={id} {...country} details={detailsHandler} />
-          ))}
+          <div className="p-7 h-min">
+            {countryList.map((country, id) => (
+              <Country key={id} {...country} details={detailsHandler} />
+            ))}
+          </div>
         </>
       )}
     </main>

@@ -4,28 +4,26 @@ const Country = (props) => {
   const capital = props.capital ? props.capital[0] : "N/A";
   const flag = props.flags.svg;
   return (
-    <div className="p-7">
-      <div
-        className="country-wrapper mx-auto my-5 max-w-lg rounded-lg overflow-hidden shadow-lg cursor-pointer"
-        onClick={() => details(name)}
-      >
-        <img className="w-full" src={flag} alt={name} />
-        <div className="px-6 py-4 text-left">
-          <h2 className="font-bold text-xl mb-2">{name}</h2>
-          <div className="text-base">
-            <p>
-              <span className="font-bold">Population: </span>
-              {population}
-            </p>
-            <p>
-              <span className="font-bold">Region: </span>
-              {region}
-            </p>
-            <p>
-              <span className="font-bold">Capital: </span>
-              {capital}
-            </p>
-          </div>
+    <div
+      className="country-wrapper mx-auto my-5 max-w-lg rounded-lg overflow-hidden shadow-lg cursor-pointer"
+      onClick={() => details(name)}
+    >
+      <img className="w-full" src={flag} alt={name} />
+      <div className="px-6 py-4 text-left">
+        <h2 className="font-bold text-xl mb-2">{name}</h2>
+        <div className="text-base">
+          <p>
+            <span className="font-bold">Population: </span>
+            {population}
+          </p>
+          <p>
+            <span className="font-bold">Region: </span>
+            {region}
+          </p>
+          <p>
+            <span className="font-bold">Capital: </span>
+            {capital}
+          </p>
         </div>
       </div>
     </div>
