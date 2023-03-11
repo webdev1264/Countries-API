@@ -1,18 +1,7 @@
-import { useState } from "react";
-
-const Nav = ({ filterAndFind }) => {
-  const [data, setData] = useState({ search: "", filter: "Filter by region" });
-
+const Nav = ({ data, setData }) => {
   const onChangeHandler = (event) => {
     const { name, value } = event.target;
     setData({ ...data, [name]: value });
-    if (name === "search") {
-      const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
-      filterAndFind(capitalizedValue, data.filter);
-    }
-    if (name === "filter") {
-      filterAndFind(data.search, value);
-    }
   };
 
   return (
@@ -52,7 +41,7 @@ const Nav = ({ filterAndFind }) => {
         className="filter rounded-lg border-none drop-shadow-md p-5 mt-12 block w-64"
         onChange={onChangeHandler}
         name="filter"
-        value={data.filter}
+        value={data.filter ? data.filter : "Filter by region"}
       >
         <option value="Filter by region" disabled hidden>
           Filter by region
