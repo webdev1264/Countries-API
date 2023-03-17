@@ -1,8 +1,5 @@
-const Nav = ({ data, setData }) => {
-  const onChangeHandler = (event) => {
-    const { name, value } = event.target;
-    setData({ ...data, [name]: value });
-  };
+const Nav = ({ inputData, onChange }) => {
+
 
   return (
     <div className="p-7 mx-auto relative">
@@ -32,16 +29,16 @@ const Nav = ({ data, setData }) => {
         <input
           className="search w-full py-4 px-8 rounded-lg"
           placeholder="Search for a country..."
-          onChange={onChangeHandler}
+          onChange={onChange}
           name="search"
-          value={data.search}
+          value={inputData.search}
         />
       </div>
       <select
         className="filter rounded-lg border-none drop-shadow-md p-5 mt-12 block w-64"
-        onChange={onChangeHandler}
+        onChange={onChange}
         name="filter"
-        value={data.filter ? data.filter : "Filter by region"}
+        value={inputData.filter ? inputData.filter : "Filter by region"}
       >
         <option value="Filter by region" disabled hidden>
           Filter by region

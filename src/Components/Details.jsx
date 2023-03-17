@@ -1,5 +1,5 @@
 const Details = (props) => {
-  const { toMainPage, countryDetails, fullCountryList, details } = props;
+  const { toMainPage, countryDetails, initialCountryList, details } = props;
   const { region, subregion, population } = countryDetails;
   const commonName = countryDetails.name.common;
   const nativeName = countryDetails.name.official;
@@ -88,7 +88,7 @@ const Details = (props) => {
       </p>
       <div className="flex flex-wrap gap-3 py-3">
         {borders.map((border, id) => {
-          const borderName = fullCountryList.find(
+          const borderName = initialCountryList.find(
             (country) => country.cca3 === border
           ).name.common;
           return (
