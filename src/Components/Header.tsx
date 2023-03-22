@@ -1,4 +1,9 @@
-const Header = (props) => {
+interface HeaderProps {
+  colorTheme: string;
+  changeTheme: () => void;
+}
+
+const Header = (props: HeaderProps) => {
   const { colorTheme, changeTheme } = props;
   return (
     <div className="header-container flex justify-between drop-shadow-sm px-7 py-14">

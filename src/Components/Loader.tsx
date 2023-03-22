@@ -5,12 +5,12 @@ const Loader = () => {
         version="1.1"
         id="L9"
         xmlns="http://www.w3.org/2000/svg"
-        xlink="http://www.w3.org/1999/xlink"
+        xlinkHref="http://www.w3.org/1999/xlink"
         x="0px"
         y="0px"
         viewBox="0 0 100 100"
         enableBackground="new 0 0 0 0"
-        xml="preserve"
+        xmlSpace="preserve"
       >
         <path
           fill="currentColor"

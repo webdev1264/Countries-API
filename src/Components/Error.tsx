@@ -1,4 +1,10 @@
-const Error = (props) => {
+interface ErrorProps {
+  error: {
+    message: string;
+  };
+}
+
+const Error = (props: ErrorProps) => {
   const { error } = props;
   return (
     <div>

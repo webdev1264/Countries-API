@@ -1,6 +1,14 @@
-const Nav = ({ inputData, onChange }) => {
+import { EventProp } from "../App";
 
+interface NavProps {
+  inputData: {
+    search: string;
+    filter: string;
+  };
+  onChange: (event: EventProp) => void;
+}
 
+const Nav = ({ inputData, onChange }: NavProps) => {
   return (
     <div className="p-7 mx-auto relative">
       <div className="input-wrapper w-full drop-shadow-md">
