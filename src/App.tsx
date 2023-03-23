@@ -45,7 +45,7 @@ function App(): JSX.Element {
     //     setCountryList(initialCountryList);
     //     setIsLoaded(true);
     //   });
-
+    
     const fetchData = async (): Promise<void> => {
       setIsLoading(true);
       try {
