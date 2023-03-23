@@ -1,7 +1,7 @@
 {
   "name": "rest-countries-api",
   "version": "0.1.0",
-  "homepage": "https://webdev1264.github.io/Countries-API",
+  "homepage": "https://webdev1264.github.io/Countries-API/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
