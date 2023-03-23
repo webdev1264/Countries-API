@@ -6,45 +6,10 @@ import Details from "./Components/Details";
 import Loader from "./Components/Loader";
 import Error from "./Components/Error";
 import { firstCharCap } from "./data/utils/firstCharCap";
+import { CountryData } from "./Components/types/interfaces";
+import { EventProp } from "./Components/types/interfaces";
+import { ErrorData } from "./Components/types/interfaces";
 import "./App.css";
-
-export interface CountryData {
-  name: {
-    common: string;
-    official: string;
-  };
-  languages: {
-    [index: string]: string;
-  };
-  flags: {
-    svg: string;
-    alt: string;
-  };
-  currencies: {
-    [index: string]: {
-      name: string;
-      symbol: string;
-    };
-  };
-  borders: string[];
-  capital: string[];
-  tld: string[];
-  region: string;
-  subregion: string;
-  population: string;
-  cca3: string;
-}
-
-export interface EventProp {
-  target: {
-    name: string;
-    value: string;
-  };
-}
-
-interface ErrorData {
-  message: string;
-}
 
 let initialCountryList: CountryData[] = [];
 const currentTheme = localStorage.getItem("theme")

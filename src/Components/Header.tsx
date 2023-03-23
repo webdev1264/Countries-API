@@ -1,7 +1,4 @@
-interface HeaderProps {
-  colorTheme: string;
-  changeTheme: () => void;
-}
+import { HeaderProps } from "./types/interfaces";
 
 const Header = (props: HeaderProps) => {
   const { colorTheme, changeTheme } = props;

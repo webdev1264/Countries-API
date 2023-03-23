@@ -1,12 +1,4 @@
-import { EventProp } from "../App";
-
-interface NavProps {
-  inputData: {
-    search: string;
-    filter: string;
-  };
-  onChange: (event: EventProp) => void;
-}
+import { NavProps } from "./types/interfaces";
 
 const Nav = ({ inputData, onChange }: NavProps) => {
   return (

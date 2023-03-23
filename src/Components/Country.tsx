@@ -1,4 +1,6 @@
-const Country = (props) => {
+import { CountryProps } from "./types/interfaces";
+
+const Country = (props: CountryProps) => {
   const { population, region, details } = props;
   const name = props.name.common;
   const capital = props.capital ? props.capital[0] : "N/A";

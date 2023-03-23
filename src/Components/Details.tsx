@@ -1,11 +1,4 @@
-import { CountryData } from "../App";
-
-interface DetailsProps {
-  toMainPage: () => void;
-  countryDetails: CountryData;
-  initialCountryList: CountryData[];
-  details: (name: string) => void;
-}
+import { DetailsProps } from "./types/interfaces";
 
 const Details = (props: DetailsProps) => {
   const { toMainPage, countryDetails, initialCountryList, details } = props;
