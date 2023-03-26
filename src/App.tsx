@@ -35,16 +35,17 @@ function App(): JSX.Element {
 
   const filteredCountryList: CountryData[] = useMemo(() => {
     const { search, filter } = inputData;
+    const cacheData = localStorage.getItem("cacheCountryList");
+    if (cacheData) {
+      initialCountryList = JSON.parse(cacheData);
+    }
     return filterCountryList(search, filter);
   }, [inputData]);
 
   const fetchData = async (): Promise<void> => {
     setIsLoading(true);
-    try {
-      const cacheData = localStorage.getItem("cacheCountryList");
-      if (cacheData) {
-        initialCountryList = JSON.parse(cacheData);
-      } else {
+    if (!initialCountryList.length) {
+      try {
         const response = await fetch("https://restcountries.com/v3.1/all");
         const data = await response.json();
         if (data.message) {
@@ -56,13 +57,13 @@ function App(): JSX.Element {
           "cacheCountryList",
           JSON.stringify(initialCountryList)
         );
+      } catch (error) {
+        console.log("Error: ", error);
+        setError(error as ErrorData);
+      } finally {
+        setIsLoading(false);
+        setTotalPages(Math.ceil(initialCountryList.length / countriesPerPage));
       }
-    } catch (error) {
-      console.log("Error: ", error);
-      setError(error as ErrorData);
-    } finally {
-      setIsLoading(false);
-      setTotalPages(Math.ceil(initialCountryList.length / countriesPerPage));
     }
   };
 
@@ -108,7 +109,7 @@ function App(): JSX.Element {
   const handleCurrentPage = (pageNumber: number) => {
     setCurrentPage(pageNumber);
   };
-
+  console.log(filteredCountryList);
   return (
     <main className={`App ${colorTheme}-theme`}>
       <Header colorTheme={colorTheme} changeTheme={handleThemeChange} />
