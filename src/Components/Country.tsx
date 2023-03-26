@@ -7,7 +7,7 @@ const Country = (props: CountryProps) => {
   const flag = props.flags.svg;
   return (
     <div
-      className="country-wrapper mx-auto my-5 max-w-lg rounded-lg overflow-hidden shadow-lg cursor-pointer"
+      className="country-wrapper mx-auto my-5 max-w-sm rounded-lg overflow-hidden shadow-lg cursor-pointer"
       onClick={() => details(name)}
     >
       <img className="w-full" src={flag} alt={name} />

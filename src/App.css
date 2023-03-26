@@ -56,3 +56,18 @@
   color: var(--text-color);
   background-color: var(--elements);
 }
+
+.pageNumbers {
+  margin-top: 20px;
+}
+
+.pageNumber {
+  display: inline-block;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.active {
+  transform: scale(1.3);
+  font-weight: bold;
+}

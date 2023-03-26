@@ -65,3 +65,8 @@ export interface NavProps {
   };
   onChange: (event: EventProp) => void;
 }
+
+export interface InputData {
+  search: string;
+  filter: string;
+}
