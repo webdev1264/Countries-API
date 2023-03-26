@@ -1,6 +1,6 @@
 import { NavProps } from "./types/interfaces";
 
-const Nav = ({ inputData, onChange }: NavProps) => {
+const Nav = ({ inputData, onChange, onFilterChange }: NavProps) => {
   return (
     <div className="p-7 mx-auto relative">
       <div className="input-wrapper w-full drop-shadow-md">
@@ -29,14 +29,14 @@ const Nav = ({ inputData, onChange }: NavProps) => {
         <input
           className="search w-full py-4 px-8 rounded-lg"
           placeholder="Search for a country..."
-          onChange={onChange}
+          onChange={(e) => onChange(e)}
           name="search"
-          value={inputData.search}
+          // value={inputData.search}
         />
       </div>
       <select
         className="filter rounded-lg border-none drop-shadow-md p-5 mt-12 block w-64"
-        onChange={onChange}
+        onChange={onFilterChange}
         name="filter"
         value={inputData.filter ? inputData.filter : "Filter by region"}
       >

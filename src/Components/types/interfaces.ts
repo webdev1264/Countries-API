@@ -64,6 +64,7 @@ export interface NavProps {
     filter: string;
   };
   onChange: (event: EventProp) => void;
+  onFilterChange: (event: EventProp) => void;
 }
 
 export interface InputData {
