@@ -1,4 +1,4 @@
-import { DetailsProps } from "./types/interfaces";
+import { DetailsProps } from "../types/interfaces";
 
 const Details = (props: DetailsProps) => {
   const { toMainPage, countryDetails, initialCountryList, details } = props;

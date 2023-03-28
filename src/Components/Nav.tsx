@@ -1,4 +1,4 @@
-import { NavProps } from "./types/interfaces";
+import { NavProps } from "../types/interfaces";
 
 const Nav = ({ inputData, onChange, onFilterChange }: NavProps) => {
   return (

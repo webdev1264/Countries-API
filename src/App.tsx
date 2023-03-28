@@ -6,12 +6,14 @@ import Details from "./Components/Details";
 import Loader from "./Components/Loader";
 import Error from "./Components/Error";
 import Pagination from "./Components/Pagination";
-import { firstCharCap } from "./data/utils/firstCharCap";
-import { CountryData } from "./Components/types/interfaces";
-import { EventProp } from "./Components/types/interfaces";
-import { ErrorData } from "./Components/types/interfaces";
-import { InputData } from "./Components/types/interfaces";
-import { debounce } from "./data/utils/debounce";
+import { firstCharCap } from "./utils/firstCharCap";
+import {
+  CountryData,
+  EventProp,
+  ErrorData,
+  InputData,
+} from "./types/interfaces";
+import { debounce } from "./utils/debounce";
 import "./App.css";
 
 const initialInputData = {
@@ -64,7 +66,6 @@ function App(): JSX.Element {
       setError(error as ErrorData);
     } finally {
       setIsLoading(false);
-      // setTotalPages(Math.ceil(initialCountryList.length / countriesPerPage));
     }
   };
 

@@ -1,4 +1,4 @@
-import { CountryProps } from "./types/interfaces";
+import { CountryProps } from "../types/interfaces";
 
 const Country = (props: CountryProps) => {
   const { population, region, details } = props;

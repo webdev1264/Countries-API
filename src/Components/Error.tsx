@@ -1,4 +1,4 @@
-import { ErrorProps } from "./types/interfaces";
+import { ErrorProps } from "../types/interfaces";
 
 const Error = (props: ErrorProps) => {
   const { error } = props;

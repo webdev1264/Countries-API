@@ -1,4 +1,4 @@
-import { EventProp } from "../../Components/types/interfaces";
+import { EventProp } from "../types/interfaces";
 
 export const debounce = (callback: (e: EventProp) => void, delay: number) => {
   let timeoutId: NodeJS.Timeout;
