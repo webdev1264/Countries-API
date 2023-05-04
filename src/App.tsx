@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Header from "./Components/Header";
 import Nav from "./Components/Nav";
 import Country from "./Components/Country";
@@ -7,12 +7,7 @@ import Loader from "./Components/Loader";
 import Error from "./Components/Error";
 import Pagination from "./Components/Pagination";
 import { firstCharCap } from "./utils/firstCharCap";
-import {
-  CountryData,
-  EventProp,
-  ErrorData,
-  InputData,
-} from "./types/interfaces";
+import { CountryData, ErrorData, InputData } from "./types/interfaces";
 import { debounce } from "./utils/debounce";
 import "./App.css";
 
@@ -75,7 +70,11 @@ function App(): JSX.Element {
     }
   }, []);
 
-  const handleOnChange = (event: EventProp) => {
+  const handleOnChange = (
+    event:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLSelectElement>
+  ) => {
     const { name, value } = event.target;
     setInputData({ ...inputData, [name]: value });
     setCurrentPage(1);

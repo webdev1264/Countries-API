@@ -58,15 +58,6 @@ export interface HeaderProps {
   changeTheme: () => void;
 }
 
-export interface NavProps {
-  inputData: {
-    search: string;
-    filter: string;
-  };
-  onChange: (event: EventProp) => void;
-  onFilterChange: (event: EventProp) => void;
-}
-
 export interface InputData {
   search: string;
   filter: string;

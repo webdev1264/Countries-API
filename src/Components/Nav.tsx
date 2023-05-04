@@ -1,4 +1,13 @@
-import { NavProps } from "../types/interfaces";
+import React from "react";
+
+export interface NavProps {
+  inputData: {
+    search: string;
+    filter: string;
+  };
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onFilterChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+}
 
 const Nav = ({ inputData, onChange, onFilterChange }: NavProps) => {
   return (
